@@ -32,6 +32,11 @@ try:
                 except:
                         setup()
         def setup():
+                try:
+                        import subprocess
+                except:
+                        pass
+                subprocess.run("clear")
                 y = input("Hello user. Do you want to start instalation? [y/n] ")
                 if y == "y":
                         pass

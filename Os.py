@@ -24,7 +24,7 @@ try:
                                 pass
                         except:
                                 setup()
-                        for filename in os.listdir("Data"):                      
+                        for filename in os.listdir("Os/Data"):                      
                                 if filename == ("Notes" and "data.json") or ("Notes" and "data.json" and "Pygames"):
                                         security()
                                 elif filename != ("Notes" and "data.json"):
@@ -60,7 +60,7 @@ try:
                 time.sleep(2)
                 print("Setup is currencly creating files that are needed to run os")
                 try:
-                        os.mkdir("Data")
+                        os.mkdir("Os/Data")
                 except:
                         pass
                 time.sleep(2)
@@ -82,7 +82,7 @@ try:
                                 ins()
                         time.sleep(5)
                         try:
-                                os.mkdir("Data/Pygames")
+                                os.mkdir("Os/Data/Pygames")
                         except:
                                 pass
                         print(Fore.GREEN + "Pygame installed")
@@ -123,12 +123,12 @@ try:
                 setup["Users"][f"{nmm}"] = {"Passwordonoff": onoffs, "Password": pas}
                 setup["Version"] = "1,0,5"
                 setup["Function"] = func        
-                with open("Data/data.json", "w") as f:
+                with open("Os/Data/data.json", "w") as f:
                         json.dump(setup, f, indent=4)
                 subprocess.run("clear")
                 print("Almost done!")
                 try:
-                        os.mkdir("Data/Notes")
+                        os.mkdir("Os/Data/Notes")
                 except:
                         pass
                 time.sleep(2)
@@ -143,7 +143,7 @@ try:
                         install()
                         pass
                 try:
-                        with open("Data/data.json", "r") as f:
+                        with open("Os/Data/data.json", "r") as f:
                                 op = json.load(f)
                         user = input("User?")
                         ops = op["Users"][f"{user}"]["Password"]
@@ -156,7 +156,7 @@ try:
                 elif ps is not ops:
                         print(Fore.GREEN + f"New Pass {ps}")
                         pss = op["Users"][f"{user}"]["Password"] = ps
-                        with open("Data/data.json", "w") as f:
+                        with open("Os/Data/data.json", "w") as f:
                                 json.dump(pss, f, indent=4)
                         menu1()
         def security():
@@ -169,7 +169,7 @@ try:
                         install()
                         pass
                 try:
-                        with open("Data/data.json", "r") as f:
+                        with open("Os/Data/data.json", "r") as f:
                                 pasw = json.load(f)
                         try:
                                 #us = pasw["Users"]
@@ -235,7 +235,7 @@ try:
                 elif menu == "factoryreset":
                         print("Deleting Data")
                         time.sleep(3)
-                        shutil.rmtree("Data")
+                        shutil.rmtree("Os/Data")
                         print("Data Deleted")
                         print("Deleting os packages")
                         os.system("pip uninstall colorama")
@@ -258,28 +258,28 @@ try:
                                 pass
                         print("music name?")
                         m = input("")
-                        music = pygame.mixer.Sound(f"Data/Music/{m}.mp3")
+                        music = pygame.mixer.Sound(f"Os/Data/Music/{m}.mp3")
                         print(f"Playing {music}")
                         menu1()
                 elif menu == "cal":
                         n = input("")
                         
                 if menu == "ver":
-                        with open("Data/data.json", "r") as f:
+                        with open("Os/Data/data.json", "r") as f:
                                 vers = json.load(f)
                         version = vers["Version"]
                         print(f"Os version {version}")
                         menu1()
                 elif menu == "test":
                         try:
-                                with open("Data/data.json", "r") as f:
+                                with open("Os/Data/data.json", "r") as f:
                                         dir2 = json.load(f)
                         except:
                                 print("System detected data lose! Running setup.")
                                 check()
                         dir1 = dir2["Function"]
                         if dir1 == "gaming":
-                                for filename in os.listdir("./Data/Pygames"):
+                                for filename in os.listdir("Os/Data/Pygames"):
                                         if filename.endswith(".py"):
                                                 print(filename)
                                                 menu1()
@@ -303,7 +303,7 @@ try:
                         elif nt is not None:
                                 num = input("Note num. (dont put used note number bc it will delete the note) ")
                                 try:
-                                        with open(f"Data/Notes/Note{num}.json", "w") as f:
+                                        with open(f"Os/Data/Notes/Note{num}.json", "w") as f:
                                                 json.dump(nt, f)
                                 except:
                                         n = input("Uh oh! Looks like ur os is old and needs resetup. Do you want to run setup? [y/n] ")
@@ -319,9 +319,9 @@ try:
                 elif menu == "notes":
                         num = input("Note number? ")
                         try:
-                                os.listdir("Data/Notes")
+                                os.listdir("Os/Data/Notes")
                                 try:
-                                        with open(f"Data/Notes/Note{num}.json", "r") as f:
+                                        with open(f"Os/Data/Notes/Note{num}.json", "r") as f:
                                                 nt = json.load(f)
                                         print(nt)
                                 except:

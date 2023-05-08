@@ -19,7 +19,7 @@ def ter():
         if n == "n":
             print("Cancelled")
             ter()
-        os.system("git clone ")
+        os.system("git clone https://github.com/lordpomind0001/PROJECT-OS")
         shutil.copyfile("PROJECT-OS/main.py", "Os/main.py")
         shutil.rmtree("PROJECT-OS")
         print("Done")
@@ -31,4 +31,7 @@ def ter():
         except:
             print("failed")
             ter()
+    else:
+        print("Unknown command")
+        ter()
 ter()

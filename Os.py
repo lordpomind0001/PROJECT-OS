@@ -230,7 +230,7 @@ try:
                         install()
                         pass
                 menu = input(Fore.WHITE + "")
-                if menu == "exit":
+                if menu == "terminal":
                         exit()
                 elif menu == "factoryreset":
                         print("Deleting Data")

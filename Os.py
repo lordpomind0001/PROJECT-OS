@@ -37,7 +37,7 @@ try:
                 except:
                         pass
                 subprocess.run("clear")
-                y = input("Hello user. Do you want to start instalation? [y/n] ")
+                y = input(Fore.WHITE + "Hello user. Do you want to start instalation? [y/n] ")
                 if y == "y":
                         pass
                 elif y == "n":
